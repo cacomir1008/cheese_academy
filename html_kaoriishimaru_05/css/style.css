@@ -1,0 +1,911 @@
+/* ここから下に記載していく */
+
+@charset "utf-8";
+html {
+  /* remを使う印 16px*62.5%*/
+    font-size: 62.5%; 
+}
+
+body {
+    /* 一般設定 */
+    max-width: 1200px;
+    margin:auto;
+    color: #333333;
+    /* 16px */
+    font-size:1.6rem;
+    font-family: "Open Sans","ヒラギノ角ゴ ProN w3", Miragino Kaku Gothic ProN,"メイリオ" ,meiryo,sans-serif;
+    /* チーズカーソル */
+    
+    cursor:none;
+}
+
+.cursor { 
+  border-radius: 50%;
+  position: absolute; 
+  top: 0;
+  left: 0; 
+  cursor: none; 
+  pointer-events: none; 
+  /*  //どの要素よりも一番上になるようにする */
+  z-index: 1001;
+}
+ 
+/* HEADER */
+.header-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin:auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  -webkit-display:flex;
+}
+
+.header-img {
+    max-width: 100%;
+    height: 121px;
+    justify-content: flex-start;
+}
+
+.btn-trigger{
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  max-width: 1200px;
+}
+
+.nav-item {
+  margin:0 0 0 50px ;
+  text-align: right;
+  font-size: 2.1rem;
+}
+
+.nav-item>a {
+ color:black;
+ text-decoration: none;
+ text-transform: uppercase;
+ line-height: 2.2;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* main visual */
+/* position:absoluteは親要素のrelativeに影響する
+imgにかけないよう注意 */
+.mainvisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;  
+  background-image:url(/img/mainbg.png);
+  position:relative;
+  margin: 0 0 60px 0;
+}
+
+
+.mainvisual__title,.mainvisual__hovertitle {
+
+
+  /* ベンダープリフィックス・サファリ用 */
+  /* -webkit-transform: translate(-50%, -50%);
+  /* ベンダープリフィックス・古いios用 */
+  /* -ms-transform: translate(-50%, -50%);  */
+  font-size: 45px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 30px; 
+}
+
+.mainvisual__subtitle,.mainvisual__hoversubtitle {
+  font-size:40px;
+  color: white;
+}  
+ 
+.mainvisual__hovertitle{
+  position: absolute;
+  top:80px;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+.mainvisual__hoversubtitle{
+  position: absolute;
+  top:200px;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+/* ホバーテキストにアニメーション */
+@keyframes typing { 
+  from { 
+    width: 0; 
+  }
+
+  to{
+    width: 20em;
+  }
+ }
+
+@keyframes caret { 
+  50% { 
+    border-right-color: currentColor;
+  }
+ }
+
+.hovertype {
+  overflow: hidden;
+  display:inline-block;
+  background-color:rgba(255, 214, 26, 0.55);
+  color:black;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+  animation: typing 2.5s steps(23), caret 0.5s steps(1) infinite;
+}
+
+/* ホバーアクション（テキスト変更） */
+/* ホバーテキストは、通常時見えない */
+.mainvisual__hovertitle {
+  display:none;
+}
+
+.mainvisual__hoversubtitle {
+  display:none;
+}
+
+/* ホバーされると、通常テキストが見えなくなり
+　ホバーテキストが表示される */
+
+.mainvisual:hover .mainvisual__title {
+  display:none;
+}
+
+.mainvisual:hover .mainvisual__hovertitle {
+  display:inline;
+}
+
+.mainvisual:hover .mainvisual__subtitle {
+  display:none;
+}
+
+.mainvisual:hover .mainvisual__hoversubtitle {
+  display:inline;
+}
+
+
+
+/* ホバーアクション終 */
+
+
+img {
+  /* 縦横比率を維持しながら画面の幅に応じて
+  　　サイズ調整（フルードイメージ）
+  　　元より大きくなることはない */
+  max-width: 100%;
+  height:auto;
+}
+
+.wrap {
+  max-width:1200;
+  margin:auto;
+}
+
+/* about */
+
+.about-wrapper {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about__title {
+    color:#ffd61a;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 0 0 30px ;
+}
+
+/* newsのh2でも使用 */
+
+.about__subtitle {
+    font-size:  1.8rem;
+    margin: 0 0 60px;
+}
+
+.about__text {
+    margin:0 0 40px;
+}
+
+/* 最後だけmarginサイズを変えたく、無理やりつけた */
+.final__text {
+    margin:0 0 80px;
+}
+
+/* カルーセル（slick） */
+
+.carousel-wrapper {
+    max-width: 1000px;
+    margin:auto;
+    height: auto;
+  }
+
+.carousel-area {
+    max-width: 1000px;
+    height: auto;
+    display: flex;
+  }
+
+.carousel-list {
+  max-width: 1000px;
+  height: auto;
+  margin:0 0 60px;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+}
+
+
+  /* めも：COURSE
+  テキストの両はし揃え
+  text-align: justify;
+  （safari用）text-align: inter-deograph;
+  */
+
+  /* COURSE */
+
+.course_wrapper {
+  width:1200px;
+  margin:0 0 60px;
+}
+
+.course__title {
+  font-size:2.4rem ;
+  font-weight: bold;
+  margin: 0 0 30px;
+}
+
+/* box_wrapper内のcourse__title margin調整 */
+.box_wrapper .course__title {
+  margin:0 0 40px;
+}
+
+.box_wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color:#c2bfbf;
+}
+
+/* 2つ目だけ逆の順番（スマホでは縦なので逆にしない） */
+.box_2 {
+  flex-direction: row-reverse;
+}
+
+
+.course-img {
+  width: 50%;
+  max-width: 600px;
+}
+
+.course-boxtext {
+   
+   max-width: 480px;
+   margin: auto;
+}
+
+/* ↓access,contactのh2でも使用 */
+
+.course__text {
+  font-size: 1.6rem;
+  margin: 0 0 60px;
+}
+
+/* Quiz */
+
+.quiz-wrapper {
+  width:800px;
+  margin:auto;
+}
+
+.quest__title {
+  background-color:#e4cd6a;
+  margin-bottom: 0;
+ 
+  font-size:30px;
+}
+
+.quest__q {
+  background-color: rgb(216, 174, 112);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.photo {
+  width:400px;
+}
+
+.quiztext__title {
+ 
+  vertical-align: center;
+  height: 300px;
+}
+
+/* inputの中でtypeがradioの時に適用される */
+input[type*="radio"]{
+  /* 初期状態を打ち消す・ベンダープリフィックス */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0 10px 0 0;
+  border: solid 1px gray;
+  background-color: #bfbfbf;
+  height: 16px;
+  width: 16px;
+  border-radius: 30%;
+}
+
+/* radio buttonがチェックされた時の適用 */
+input[type*="radio"]:checked{
+  background-color:#ffd61a;
+}
+
+  /* NEWS */
+
+.news-wrapper {
+  max-width: 960px;
+  margin:auto;
+}
+
+.news {
+  padding: 60px 0 60px 0;
+  margin: 0 0 60px;
+}
+
+/* ホバー入れたらmarginがうまく機能
+しなかったため、news__headingの上部で指定した
+.news__eyecatch{ 
+  margin: 0 0 30px;
+}*/
+
+/* ホバーアクション */
+.hover-action {
+  position: relative;
+}
+
+.news dl {
+  position:absolute;
+}
+
+.dt-title {
+  margin:0 0 10px;
+}
+
+/* type1 */
+.type1 {
+  overflow: hidden;
+}
+
+.type1 dl {
+  background-color: rgba(255, 214, 26, 0.5);
+  top:0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity .6s, transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.type1:hover dl {
+  opacity: 1;
+  transform: none;
+}
+
+/* type2 */
+
+.type2 {
+  perspective: 1000px;
+}
+
+.type2 dl{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  width: 100%;
+  height:100%;
+  transition: opacity .6s, transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  backface-visibility: hidden;
+}
+
+.type2 img {
+  transition: opacity .6s, transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  backface-visibility: hidden;
+}
+.type2:hover img {
+  transform: rotateX(180deg);
+}
+
+.type2 dl{
+  background-color: rgba(255, 214, 26, 0.5)
+}
+
+.type2:not(:hover) dl{
+  transform: rotateX(-180deg);
+}
+
+/*type3 画像切り替え（javascript） */
+
+
+/* type3（動かず） 
+.type3 {
+  overflow: hidden;
+}
+
+.type3 dl {
+  background:transparent;
+}
+
+.type3 dl dt,
+.type3 dl dd{
+  position: relative;
+  z-index:1;
+  transition: opacity .3s .3s;
+}
+
+.type3:not(:hover) dl dt,
+.type3:not(:hover) dl dd {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.type3 dl::before,
+.type3 dl::after{
+  content: "";
+  display: block;
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background-color:rgba(255, 214, 26, 1) ;
+  transition: opacity .3s, transform .3s cubic-bezier(0.215, 0.61, 0.335, 1);
+}
+
+.type3 dl::before {
+  left:0;
+}
+
+.type3 dl::after {
+  right:0;
+}
+
+.type3:not(:hover)dl::before{
+  opacity: 0;
+  transition-duration: .6s;
+}
+
+.type3:not(:hover)dl::after{
+  opacity: 0;
+  transition-duration: .6s;
+}
+
+.type3:not(:hover)dl::before {
+  transform:translateX(-200px) skew(-30deg);
+}
+
+.type3:not(:hover)dl::after {
+  transform: translateX(300px) skew(-30deg);
+} */
+
+/* ホバーアクション終 */
+
+.news__heading {
+  font-size: 1.6rem;
+  margin: 30px 0 24px;
+}
+
+.news__list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 60px;
+}
+
+.news__item {
+  margin:0 30px 30px;
+}
+  
+.news__text {
+  font-size: 1.6rem;
+  line-height: 1.75;
+}
+
+.btn {
+      display: block;
+      width: 300px;
+      /* 端の丸みを変えて外観変更 */
+      border-radius: 25% 10%;
+     /* ▼左右の予約をmarginで揃える */
+      margin: auto;
+     /* ▼{60px-18px（テキスト）}/2（上下）=21 */
+      padding: 21px 0;
+      font-size: 1.8rem;
+      text-align: center;
+      text-decoration: none;
+      /* ホバー（拡大） */
+      transition: .3s;
+      transform: scale(1);
+      /* ホバー（safariだと変） */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+
+.btn-flat span {
+      position: relative;
+  }
+
+.btn-flat {
+    padding: 21px 0;  
+    border-radius: 25% 10%;
+    overflow: hidden;
+    color:white;
+    background: #000;
+  }
+
+.btn-flat:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-90%);
+    transform: translateX(-90%);
+    background:#ffd61a;
+  }
+
+  
+.btn-flat:hover:before {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+.btn-flat:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+    /* Access  */
+
+
+.access-wrapper {
+  background-color: gray;
+  padding: 60px;
+}
+
+.access__title {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+
+/* newsのh2でも使用 */
+
+.map {
+  margin: 0 0 60px;
+}
+
+.access__subtitle {
+  font-size: 1.8rem;
+  margin: 0 0 60px;
+}
+
+.access-outer {
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.access-list {
+  line-height: 65px;
+}
+
+
+/* Contact */
+.contact {
+  padding: 60px 0 140px;
+}
+
+.contact-text {
+  line-height: 60px;
+  margin:0 0 30px;
+}
+
+.form-wrapper {
+  width: 640px;
+  margin:auto;
+}
+
+.form-title {
+  width:176px;
+  margin: 0 64px 0 0;
+  text-align:left;
+}
+
+.form-item {
+  width:400px;
+  margin:8px 0 8px ;
+}
+
+.form-inner {
+  display: flex;
+  margin:0 0 30px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+}
+
+.form-parts {
+   /* 初期状態を打ち消す・ベンダープリフィックス */
+   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.6rem;
+  border: solid 1px #bfbfbf ;
+}
+
+/* inputの中でtypeがcheckboxの時に適用される */
+input[type*="checkbox"]{
+    /* 初期状態を打ち消す・ベンダープリフィックス */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0 10px 0 0;
+    border: solid 1px gray;
+    background-color: #bfbfbf;
+    height: 16px;
+    width: 16px;
+    border-radius: 30%;
+}
+
+/* チェックボックスがチェックされた時の適用 */
+input[type*="checkbox"]:checked{
+    background-color:#ffd61a;
+}
+
+.checkbox-text {
+  line-height: 24px;
+}
+
+.form-label {
+  margin: 0 16px 0 0;
+  font-size: 1.6rem;
+}
+
+/* footer */
+
+.footer {
+  position: relative;
+  background-color:  #707070;
+  padding: 30px 0;
+}
+
+.copyrights {
+  color:white ;
+}
+
+/* ページTOPボタン（font awesome） */
+
+.icon-up {
+  color:#ffd61a;
+}
+
+.btn-pagetop {
+  display: block;
+}
+
+/* スマートフォン用 追加CSS
+640px以下では下記のCSS適用  */
+@media screen and (max-width:640px) {
+
+
+  /* ----------------------
+  *  header
+  スマートフォン用ナビゲーションメニュー
+  /*----------------------*/
+
+  /* 常に一番上に固定表示 */
+  .header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  .header-wrapper{
+    display: block;    
+  }
+
+  .navigation {
+    /* 非表示 */
+    display:none;  
+    background-color: rgba(120,208,253,0.8);
+    width: 100%;
+    height: 100%;  
+  }
+
+  .nav-list{
+      display: block;
+      padding: 84px 0 0;
+    }
+
+   .nav-item{
+     margin: 0 0 60px;
+     
+    }
+  
+  /* リンク範囲を広げる */
+  .nav-item>a{
+     text-align: center;
+      display:block;
+      font-size: 2.1rem;
+    }
+  
+  .mainvisual {
+    width: 100%;
+  }
+
+  /* ハンバーガーメニューボタン */
+
+.btn-trigger{
+  /* display noneを解除 */
+  display: block;
+  position: fixed;
+  top:20px;
+  right:100px;
+  z-index: 900;
+  width: 30px;
+  /* ↓buttonタグ初期設定取り消し */
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  background-color:transparent;
+  box-shadow: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* 押された場合の状態変化
+ transformで1.3回転＆移動指定、2は透明化*/
+.btn-trigger.active use:nth-of-type(1){
+  transform:translateY(30px) rotate(-45deg);
+}
+
+.btn-trigger.active use:nth-of-type(2){
+  opacity: 0;
+}
+.btn-trigger.active use:nth-of-type(3){
+  transform:translateX(35px) translateY(-15px) rotate(45deg);
+}
+
+
+  /* ----------------------
+  *  about
+  /*----------------------*/
+
+.about-wrapper {
+  width:100%;
+
+  /* 左右の横幅10px */
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+/* ----------------------
+  *  Course
+  /*----------------------*/
+
+.course_wrapper{
+  width:100%;
+}
+
+/* flexbox解除して縦並びに */
+.box_wrapper{
+  display: block;
+}
+
+.course-img {
+  width:100%;
+}
+
+ /* ----------------------
+  *  Quiz
+  /*----------------------*/
+
+.quiz-wrapper {
+  width:100%;
+}
+
+ /* ----------------------
+  *  news
+  　横並びを縦並びに
+  /*----------------------*/
+
+.news {
+    padding: 40px 0;
+  }
+
+  /* display-flexを解除 */
+.news__list {
+  display: block;
+}
+
+.news-wrapper{
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+ /* ----------------------
+  *  Access
+  /*----------------------*/
+
+.access {
+    padding:40px 0;
+  }
+
+.access-list{
+    line-height: 40px;
+  }
+
+.access__subtitle{
+  margin:0 0 40px;
+}
+
+.map{
+    margin:0 0 40px;
+  }
+
+ /* ----------------------
+  *  Contact
+  dtとddを横並びから縦並びに
+  /*----------------------*/
+
+.contact {
+  padding: 40px 0 80px;
+}
+
+.form-wrapper{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.form-inner{
+  display: block;
+}
+
+.form-title{
+  width:100%;
+}
+
+.form-item{
+  width: 100%;
+}
+
+.contact-text {
+  line-height: 40px;
+  margin:0 0 20px;
+  padding: 0 10px;
+}
+}
