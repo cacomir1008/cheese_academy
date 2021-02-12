@@ -115,6 +115,7 @@ imgにかけないよう注意 */
   left:0;
   right:0;
   margin:auto;
+  width:50%;
 }
 
 .mainvisual__hoversubtitle{
@@ -123,6 +124,7 @@ imgにかけないよう注意 */
   left:0;
   right:0;
   margin:auto;
+  width:80%
 }
 
 /* ホバーテキストにアニメーション */
@@ -314,14 +316,48 @@ img {
 .quiz-wrapper {
   width:800px;
   margin:auto;
+  border:outset #ffd61a;
+  padding:10px 5px;
 }
 
 .quest__title {
-  background-color:#e4cd6a;
+  background-color:rgba(255, 214, 26, 0.5);
+  border-radius: 80%;
   margin-bottom: 0;
- 
-  font-size:30px;
+  width:80%;
+  margin:0 auto 10px;
+  font-size:2.0rem;
 }
+
+.quiz-wrapper>.about__title{
+  margin:0 0 10px;
+}
+
+ /* アニメーション（タイトルがきらめく） */
+.anime-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+/* rotate3d(x,y,z軸）で光の反射を回転（らしい） */
+.anime-shine:before{
+  animation: shine .6s ease 1s infinite;
+  animation-duration: 1s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  transform: rotate3d(0,0,1,-45deg)translate3d(0,-120%,0);
+}
+
+@keyframes shine {
+  0%{transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);background: rgba(255,255,255,0.5);}
+  100%{transform: rotate3d(0,0,1,-25deg) translate3d(0,150%,0);background: rgba(255,255,255,0.5);}
+}
+
+/* アニメーション終 */
 
 .quest__q {
   background-color: rgb(216, 174, 112);
@@ -331,12 +367,14 @@ img {
 
 .photo {
   width:400px;
+  height: 300px;
+  border:outset;
 }
 
 .quiztext__title {
  
   vertical-align: center;
-  height: 300px;
+  
 }
 
 /* inputの中でtypeがradioの時に適用される */
@@ -590,14 +628,21 @@ input[type*="radio"]:checked{
 
 
 .access-wrapper {
-  background-color: gray;
+  /* 背景画像 */
+  background-image: url(/img/junction_harajuku.jpg);
   padding: 60px;
+  background-size: cover;
 }
-
+  /* 文字が見えるようのフィルタ */
+.access-filter {
+  background: rgba(255,255,255,.5);
+  height: 100%;
+}
 .access__title {
   font-size: 2.4rem;
   font-weight: bold;
 }
+
 
 
 /* newsのh2でも使用 */
@@ -625,11 +670,13 @@ input[type*="radio"]:checked{
 /* Contact */
 .contact {
   padding: 60px 0 140px;
+  
 }
 
 .contact-text {
   line-height: 60px;
   margin:0 0 30px;
+  
 }
 
 .form-wrapper {
@@ -638,14 +685,23 @@ input[type*="radio"]:checked{
 }
 
 .form-title {
-  width:176px;
-  margin: 0 64px 0 0;
-  text-align:left;
+  /* paddingをwidthに含める */
+  box-sizing:border-box;
+  width:240px;
+  padding:10px 64px 0 16px;
+  border-top: dashed 1px #ec991d ;
+  border-bottom: dashed 1px #ec991d  ;
+  border-right:solid 2px #ffd61a;
 }
 
+
 .form-item {
+  /* paddingをwidthに含める */
+  box-sizing:border-box;
   width:400px;
-  margin:8px 0 8px ;
+  padding: 8px 0 8px 8px;
+  border-top: dashed 1px #ec991d ;
+  border-bottom: dashed 1px #ec991d  ;
 }
 
 .form-inner {
@@ -653,6 +709,7 @@ input[type*="radio"]:checked{
   margin:0 0 30px;
   flex-wrap: wrap;
   white-space: nowrap;
+  border-collapse: collapse;
 }
 
 .form-parts {
@@ -661,7 +718,7 @@ input[type*="radio"]:checked{
   -webkit-appearance: none;
   -moz-appearance: none;
   box-sizing: border-box;
-  width: 100%;
+  width: 328px;
   padding: 8px;
   font-size: 1.6rem;
   border: solid 1px #bfbfbf ;
@@ -869,7 +926,7 @@ input[type*="checkbox"]:checked{
   }
 
 .access__subtitle{
-  margin:0 0 40px;
+    margin:0 0 40px;
 }
 
 .map{
