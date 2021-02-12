@@ -85,7 +85,7 @@ imgにかけないよう注意 */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;  
-  background-image:url(/img/mainbg.png);
+  background-image:url(../img/mainbg.png);
   position:relative;
   margin: 0 0 60px 0;
 }
@@ -629,7 +629,7 @@ input[type*="radio"]:checked{
 
 .access-wrapper {
   /* 背景画像 */
-  background-image: url(/img/junction_harajuku.jpg);
+  background-image: url(../img/junction_harajuku.jpg);
   padding: 60px;
   background-size: cover;
 }
